@@ -1,0 +1,43 @@
+require 'open-uri'
+require 'json'
+
+class GamesController < ApplicationController
+  def new
+    # @letters = []
+    # alphabet = [*'A'..'Z']
+    # 10.times { @letters << alphabet[rand(0..25)] }
+    @letters = ('A'..'Z').to_a.sample(10)
+  end
+
+  def score
+    @word = params[:word]
+    @letters = params[:letters]
+    if english_word? && valid_word?
+      @score = @word.length
+    else
+      @score = 0
+    end
+
+    if session[:score]
+      session[:score] += @score
+    else
+      session[:score] = @score
+    end
+  end
+
+  private
+
+  def english_word?
+    url = "https://wagon-dictionary.herokuapp.com/#{@word}"
+    response = JSON.parse(open(url).read)
+    response['found']
+  end
+
+  def valid_word?
+    word_chars = @word.upcase.chars
+    letter_chars = @letters.chars
+    word_chars.all? do |char|
+      word_chars.count(char) <= letter_chars.count(char)
+    end
+  end
+end
