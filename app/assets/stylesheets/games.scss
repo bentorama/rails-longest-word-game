@@ -11,6 +11,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 32px;
 }
 
 .letter {
@@ -19,6 +20,12 @@
   border-radius: 3px;
   width: 75px;
   height: 75px;
+  font-size: 30px;
+  margin-right: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
 }
 
 .form-wrapper {
@@ -26,4 +33,63 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.word-input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 4px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.reset-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-submit {
+  padding: 12px 20px;
+  background-color: #4C98DD;
+  border-radius: 5px;
+  color: white;
+  border: 1px solid #333;
+}
+
+.btn-reset {
+  padding: 12px 20px;
+  display: inline-block;
+  text-align: center;
+  background-color: #333;
+  border-radius: 5px;
+  color: white;
+  border: 1px solid #333;
+}
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+h1 {
+  text-align: center;
+}
+
+.score {
+  display: inline-block;
+  background: #4C98DD;
+  box-shadow: rgba(0, 0, 0, 0.3);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 5px;
+}
+
+.container-score {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }

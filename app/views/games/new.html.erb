@@ -1,4 +1,8 @@
 <div class="container">
+<h1>Current score is <%= session[:score] %></h1>
+<div class="reset-wrapper">
+  <%= link_to 'Reset Score', reset_path, method: :post, class: 'btn-reset' %>
+</div>
   <div class="letter-wrapper">
     <% @letters.each do |letter| %>
       <div class="letter"><%= letter %></div>
@@ -6,10 +10,13 @@
   </div>
   <div class="form-wrapper">
       <form action="/score" method="post">
-      <input type="text" name="word" placeholder="Type your word">
-      <input type="submit" value="Submit">
       <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
       <%= hidden_field_tag :letters, @letters %>
+      <%= hidden_field_tag :start, @start %>
+      <div class="input-wrapper">
+        <input type="text" name="word" placeholder="Type your word">
+        <input type="submit" value="Submit">
+      </div>
     </form>
   </div>
 </div>

@@ -1,4 +1,5 @@
-<div class="container">
-  <h1><%= session[:score] %></h1>
+<div class="container container-score">
+  <h1 class="score"><%= session[:score] %></h1>
+  <h3><%= @message %></h3>
+  <%= link_to 'Play again', new_path, class: 'btn-reset' %>
 </div>
-<%= link_to 'Play again', new_path %>
